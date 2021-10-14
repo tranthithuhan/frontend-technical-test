@@ -1,0 +1,21 @@
+.topbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: $topbar-height;
+
+  display: flex;
+  justify-content: flex-start;
+
+  box-shadow: 0 4px 8px 0 lightgrey;
+  background-color: $white-color;
+
+  padding: 10px;
+
+  z-index: 3;
+}
+
+.body {
+  display: flex;
+  margin-top: $topbar-height;
+}
