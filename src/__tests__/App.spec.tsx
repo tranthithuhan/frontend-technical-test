@@ -1,11 +1,11 @@
-import { render, screen } from "@testing-library/react"
+import { render } from "@testing-library/react"
 import App from "../pages"
 
 describe("App", () => {
   it("should render correctly App", () => {
-    render(<App />)
+    const { container } = render(<App />)
     expect(
-      screen.getByText('Bonjour monde !')
-    ).toBeInTheDocument()
+      container
+    ).toMatchSnapshot()
   })
 })

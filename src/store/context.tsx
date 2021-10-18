@@ -7,11 +7,13 @@ import { reducer } from './reducers'
 type InitialStateType = {
 	conversations: Conversation[],
 	users: User[];
+	selectedConversationId: Conversation['id']
 }
 
 const initialState = {
 	conversations: [],
 	users: [],
+	selectedConversationId: null,
 }
 
 const AppContext = createContext<{

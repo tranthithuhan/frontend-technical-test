@@ -15,3 +15,7 @@ export const getUserByUserId = (userId: User['id']):Promise<User> =>
 	}).exec().then(res => res.data)
 
 export const isMe = (userId: User['id']) => userId === getLoggedUserId()
+
+export const getUserInListByUserId = (users: User[], userId: User['id']):User => {
+	return users.find(user => user.id === userId)
+}

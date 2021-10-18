@@ -1,13 +1,13 @@
 import type { FC } from 'react'
 import styles from '../styles/Layout.module.scss'
-import { useIntl } from '../plugins/i18n'
 import { useContext, useEffect } from 'react'
-import { getUserConversations, getUsersInConversations } from '../utils/conversation'
+import { getUserConversations, getUsersInConversations } from '../utils/conversations'
 import { AppContext } from '../store/context'
 import { FETCH_CONVERSATIONS_SUCCESS, FETCH_USERS_SUCCESS } from '../store/reducers'
+import Conversations from "../components/conversations/List";
+
 
 const Home: FC = () => {
-  const { t } = useIntl()
   const { dispatch } = useContext(AppContext)
   
   useEffect(() => {
@@ -26,9 +26,7 @@ const Home: FC = () => {
 
   return (
     <div className={styles.body}>
-      <h1 className={styles.title}>
-        { t('common.hello') }
-      </h1>
+      <Conversations/>
     </div>
   )
 }

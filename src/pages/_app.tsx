@@ -1,5 +1,6 @@
 import type { AppProps } from 'next/app'
 import { Fragment } from 'react'
+import '../styles/index.scss'
 
 import Topbar from '../components/layouts/Topbar'
 

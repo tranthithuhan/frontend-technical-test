@@ -2,7 +2,7 @@ import type { Conversation } from '../types/conversation'
 import type { User } from '../types/user'
 import BackendRequest from '../plugins/backend-request'
 import { getLoggedUserId } from './getLoggedUserId'
-import { getUserByUserId, isMe } from './user'
+import { getUserByUserId, isMe } from './users'
 
 export const getConversationsByUserId = (userId: User['id']):Promise<Conversation[]> =>
 	new BackendRequest({
@@ -13,9 +13,13 @@ export const getConversationsByUserId = (userId: User['id']):Promise<Conversatio
 export const getUserConversations = ():Promise<Conversation[]> =>
 	getConversationsByUserId(getLoggedUserId())
 
+export const getOtherUserId = (conversation: Conversation):User['id'] => {
+	return isMe(conversation.senderId) ? conversation.recipientId : conversation.senderId
+}
+
 export const getUsersIdsInConversations = (conversations: Conversation[]): User['id'][] => {
 	return conversations.reduce((userIds: User['id'][], conversation: Conversation) => {
-		const otherUserId = isMe(conversation.senderId) ? conversation.recipientId : conversation.senderId
+		const otherUserId = getOtherUserId(conversation)
 		
 		if (!userIds.find(id => id == otherUserId)) userIds.push(otherUserId)
 		

@@ -1,5 +1,6 @@
 export const FETCH_CONVERSATIONS_SUCCESS = 'FETCH_CONVERSATIONS_SUCCESS'
 export const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS'
+export const SELECT_CONVERSATION = 'SELECT_CONVERSATION'
 
 
 export const reducer = (state, action) => {
@@ -14,6 +15,12 @@ export const reducer = (state, action) => {
 			return {
 				...state,
 				users: action.payload
+			}
+			
+		case SELECT_CONVERSATION:
+			return {
+				...state,
+				selectedConversationId: action.payload
 			}
 		
 		default:
