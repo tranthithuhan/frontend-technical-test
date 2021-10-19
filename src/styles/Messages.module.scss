@@ -2,7 +2,6 @@
   flex: 1;
   height: calc(100vh - 60px);
   overflow: scroll;
-  padding-bottom: 76px;
 
   &__header {
     height: 60px;
@@ -22,6 +21,7 @@
 
   &__wrapper {
     overflow: scroll;
+    margin-bottom: 76px;
   }
 }
 
@@ -58,7 +58,7 @@
   background-color: white;
   position: fixed;
   bottom: 0;
-  width: calc(100% - 316px);
+  width: calc(100% - #{$left-conversation-desktop-width});
   height: 76px;
   border-top: 1px solid #e6ebef;
   padding: 8px;
@@ -83,5 +83,9 @@
     border: none;
     margin-left: 12px;
     font-weight: bold;
+  }
+
+  @media (max-width: $breakpoint-desktop) {
+    width: calc(100% - #{$left-conversation-mobile-width});
   }
 }

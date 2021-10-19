@@ -1,5 +1,6 @@
 .conversations {
   border-right: 1px solid lightgray;
+  width: $left-conversation-desktop-width;
 
   &__header {
     font-size: 24px;
@@ -13,11 +14,18 @@
   &__body {
     overflow: scroll;
   }
+
+  @media (max-width: $breakpoint-desktop) {
+    width: $left-conversation-mobile-width;
+
+    &__header {
+      display: none;
+    }
+  }
 }
 
 .conversation {
   display: flex;
-  min-width: 300px;
   cursor: pointer;
   border-radius: 8px;
   margin: 0 8px;
@@ -50,5 +58,14 @@
 
   &__isSelected {
     background: #e6ebef;
+  }
+
+  @media (max-width: $breakpoint-desktop) {
+    margin: 0;
+    justify-content: center;
+
+    &__info {
+      display: none;
+    }
   }
 }

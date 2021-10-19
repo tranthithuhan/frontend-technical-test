@@ -20,21 +20,30 @@ const Messages: FC = () => {
 	const userId = getOtherUserId(selectedConversation)
 	const user = getUserInListByUserId(users, userId)
 	
+	const getMessage = useCallback(() => {
+		return getMessageByConversationId(selectedConversationId)
+			.then(messages => {
+				return setMessages(messages)
+			})
+	}, [selectedConversationId])
+	
+	useEffect(() => {
+		getMessage()
+			.then(() => {
+				scrollTo(messageEndRef)
+			})
+	}, [selectedConversationId])
+	
 	useEffect(() => {
 		const interval = setInterval(() => {
-			updateMessages()
+			getMessage()
 		}, 500)
 		return () => clearInterval(interval)
 	}, [selectedConversationId])
 	
 	const updateMessages = useCallback(() => {
-    debugger
-		if (selectedConversationId)
-			getMessageByConversationId(selectedConversationId)
-				.then(messages => {
-					setMessages(messages)
-          scrollTo(messageEndRef)
-				})
+		getMessage()
+			.then(() => scrollTo(messageEndRef))
 	}, [selectedConversationId])
 	
 	return (
