@@ -4,8 +4,8 @@ import { MOCKED_CONVERSATION } from '../utils/__tests__/conversations.spec'
 import { MOCKED_USER, MOCKED_USER_NICKNAME } from '../utils/__tests__/users.spec'
 
 
-describe('Conversations', () => {
-  it('should render correctly App', () => {
+describe('Conversation', () => {
+  it('should render conversation information correctly', () => {
     const { getByTestId } = render(
       <Conversation
         conversation={MOCKED_CONVERSATION}

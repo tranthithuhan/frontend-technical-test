@@ -6,8 +6,10 @@ import { getOtherUserId } from '../../utils/conversations'
 import { getUserInListByUserId } from '../../utils/users'
 import { Conversation } from '../../types/conversation'
 import { SELECT_CONVERSATION } from '../../store/reducers'
+import { useIntl } from '../../plugins/i18n'
 
 const List: FC = () => {
+	const { t } = useIntl()
 	const { state, dispatch } = useContext(AppContext)
 	
 	const { conversations, users,  selectedConversationId } = state
@@ -19,7 +21,9 @@ const List: FC = () => {
 			data-testid="conversation-list"
 			className={styles.conversations}
 		>
-			<div className={styles.conversations__header}>Discussions</div>
+			<div className={styles.conversations__header}>
+				{ t('common.discussions') }
+			</div>
 			
 			<div className={styles.conversations__body}>
 				{

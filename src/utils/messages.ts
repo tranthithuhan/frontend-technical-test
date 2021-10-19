@@ -1,6 +1,7 @@
 import type { Conversation } from '../types/conversation'
 import { Message } from '../types/message'
 import BackendRequest from '../plugins/backend-request'
+import { getLoggedUserId } from './getLoggedUserId'
 
 export const getMessageByConversationId = (conversationId: Conversation['id']):Promise<Message[]> =>
 	new BackendRequest({
@@ -14,9 +15,14 @@ export const deleteMessageById = (messageId: Message['id']):Promise<object> =>
 		method: 'DELETE'
 	}).exec().then(res => res.data)
 
-export const createMessageByConversationId = (conversationId: Conversation['id'], message: Message):Promise<Message> =>
+export const createMessageByConversationId = (conversationId: Conversation['id'], message: string):Promise<Message> =>
 	new BackendRequest({
-		url: `conversations/${conversationId}`,
+		url: `messages/${conversationId}`,
 		method: 'POST',
-		data: message
+		data: {
+			authorId: getLoggedUserId(),
+			conversationId: conversationId,
+			body: message,
+			timestamp: Date.now(),
+		}
 	}).exec().then(res => res.data)

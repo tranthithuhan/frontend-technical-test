@@ -1,0 +1,1 @@
+export const scrollTo = (ref) => ref.current.scrollIntoView()

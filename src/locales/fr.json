@@ -1,5 +1,6 @@
 {
   "common": {
-    "hello": "Bonjour monde !"
+    "discussions": "Discussions",
+    "send": "Envoyer"
   }
 }

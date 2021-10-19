@@ -14,7 +14,7 @@ export const getUserConversations = ():Promise<Conversation[]> =>
 	getConversationsByUserId(getLoggedUserId())
 
 export const getOtherUserId = (conversation: Conversation):User['id'] => {
-	return isMe(conversation.senderId) ? conversation.recipientId : conversation.senderId
+	return conversation && (isMe(conversation.senderId) ? conversation.recipientId : conversation.senderId)
 }
 
 export const getUsersIdsInConversations = (conversations: Conversation[]): User['id'][] => {
@@ -46,3 +46,7 @@ export const createConversationsByUserId = (userId: User['id'], conversation: Co
 		method: 'POST',
 		data: conversation
 	}).exec().then(res => res.data)
+
+export const getConversationInListByConversationId = (conversations: Conversation[], conversationId: Conversation['id']):Conversation => {
+	return conversations.find(conversation => conversation.id === conversationId)
+}
