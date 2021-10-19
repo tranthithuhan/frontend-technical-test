@@ -2,5 +2,15 @@
   "common": {
     "discussions": "Discussions",
     "send": "Envoyer"
+  },
+  "error": {
+    "404": {
+      "title": "404 Fichier introuvable",
+      "message": "Impossible de trouver cette page."
+    },
+    "500": {
+      "title": "500 Erreur serveur",
+      "message": "Le serveur a rencontré un problème inattendu qui l'empêche de répondre à la requête."
+    }
   }
 }

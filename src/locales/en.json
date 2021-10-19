@@ -2,5 +2,15 @@
   "common": {
     "discussions": "Discussions",
     "send": "Send"
+  },
+  "error": {
+    "404": {
+      "title": "404 Not Found",
+      "message": "This page could not be found."
+    },
+    "500": {
+      "title": "500 Internal Server Error",
+      "message": "The server encountered an unexpected condition that prevented it from fulfilling the request."
+    }
   }
 }
