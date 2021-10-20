@@ -6,7 +6,7 @@ import { MOCKED_USERS } from '../utils/__tests__/users.spec'
 const MOCKED_STATE = {
   conversations: MOCKED_CONVERSATIONS,
   users: MOCKED_USERS,
-  selectedConversationId: 1
+  selectedConversation: null
 }
 
 describe('Messages', () => {

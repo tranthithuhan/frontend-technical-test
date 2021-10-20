@@ -9,42 +9,41 @@ import { scrollTo } from '../../utils/scroll'
 import { getMessageByConversationId } from '../../utils/messages'
 import { AppContext } from '../../store/context'
 import { getUserInListByUserId, isMe } from '../../utils/users'
-import { getConversationInListByConversationId, getOtherUserId } from '../../utils/conversations'
+import { getOtherUserId } from '../../utils/conversations'
 
 const Messages: FC = () => {
 	const messageEndRef = useRef(null)
 	const { state } = useContext(AppContext)
-	const { selectedConversationId, users, conversations } = state
+	const { selectedConversation, users } = state
 	const [messages, setMessages]: [Message[], Dispatch<Message[]>] = useState([])
-	const selectedConversation = getConversationInListByConversationId(conversations, selectedConversationId)
 	const userId = getOtherUserId(selectedConversation)
 	const user = getUserInListByUserId(users, userId)
 	
 	const getMessage = useCallback(() => {
-		return getMessageByConversationId(selectedConversationId)
+		return getMessageByConversationId((selectedConversation || {}).id)
 			.then(messages => {
 				return setMessages(messages)
 			})
-	}, [selectedConversationId])
+	}, [(selectedConversation || {}).id])
 	
 	useEffect(() => {
 		getMessage()
 			.then(() => {
 				scrollTo(messageEndRef)
 			})
-	}, [selectedConversationId])
+	}, [(selectedConversation || {}).id])
 	
 	useEffect(() => {
 		const interval = setInterval(() => {
 			getMessage()
 		}, 500)
 		return () => clearInterval(interval)
-	}, [selectedConversationId])
+	}, [(selectedConversation || {}).id])
 	
 	const updateMessages = useCallback(() => {
 		getMessage()
 			.then(() => scrollTo(messageEndRef))
-	}, [selectedConversationId])
+	}, [(selectedConversation || {}).id])
 	
 	return (
 		<div
@@ -74,7 +73,7 @@ const Messages: FC = () => {
 				<div ref={ messageEndRef }/>
 			</div>
 			<MessageForm
-				conversationId={ selectedConversationId }
+				conversationId={ (selectedConversation || {}).id }
 				updateMessage={ updateMessages }
 			/>
 		</div>

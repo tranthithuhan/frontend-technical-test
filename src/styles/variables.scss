@@ -1,7 +1,35 @@
-$white-color: #FFF;
+// This file defined all colors, box-shadown, font size, ...
+// used in this project
 
+
+// Used colors
+$white-color: #ffffff;
+$orange-color: #ff6e14;
+$light-orange-color: #FEEFE9;
+$blue-color: #4183d7;
+$light-blue-color: #d9e6f7;
+$light-grey-color: #f6f6f6;
+$gainsboro-color: #dfdfdf;
+$pale-silver-color: #cec4c2;
+$spanish-gray-color: #a39594;
+$black-olive-color: #3c3c3c;
+
+// Box shadown
+$box-shadow: 0 4px 8px 0 $gainsboro-color;
+
+// Component height
 $topbar-height: 60px;
+$header-height: 60px;
 $left-conversation-desktop-width: 350px;
 $left-conversation-mobile-width: 60px;
+
+// font size
+$body-regular: 16px;
+$body-small: 12px;
+
+$heading-large: 36px;
+$heading-medium: 24px;
+$heading-small: 20px;
+$heading-label: 16px;
 
 $breakpoint-desktop: 768px;

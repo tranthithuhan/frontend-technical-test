@@ -14,11 +14,13 @@ const Home: FC = () => {
     getUserConversations()
       .then(conversations => {
         dispatch({type: FETCH_CONVERSATIONS_SUCCESS, payload: conversations})
-        dispatch({type: SELECT_CONVERSATION, payload: (conversations[0] || {}).id})
         getUsersInConversations(conversations)
           .then(users =>
             dispatch({type: FETCH_USERS_SUCCESS, payload: users})
           )
+        
+        if(!!conversations && conversations.length)
+          dispatch({type: SELECT_CONVERSATION, payload: conversations[0] || {}})
       })
   }, [])
 

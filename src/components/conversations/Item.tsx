@@ -16,7 +16,7 @@ type ConversationProps = {
 const Item: FC<ConversationProps> = ({ conversation, user, isSelected, onSelectConversation }) => {
 	const date = moment.unix(conversation.lastMessageTimestamp).format('DD/MM/YYYY HH:mm')
 	const handleSelectConversation = () => {
-		onSelectConversation(conversation.id)
+		onSelectConversation(conversation)
 	}
 	
 	return (

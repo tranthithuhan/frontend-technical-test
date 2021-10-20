@@ -18,7 +18,7 @@ const MessageForm: FC<MessageFormProps> = ({conversationId, updateMessage}) => {
 	
 	const handleKeyPress = (e) => {
 		if (e.key === 'Enter') {
-			handleOnChange(e)
+			handleCreateMessage()
 		}
 	}
 	

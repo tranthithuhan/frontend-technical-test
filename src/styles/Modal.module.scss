@@ -1,0 +1,59 @@
+
+.modal {
+  position: relative;
+  top: 40px;
+  left: 40px;
+  background-color: $white-color;
+  width: 50%;
+  margin: auto;
+  border-radius: 8px;
+  height: calc(100vh - 200px) !important;
+
+  &__closeIcon {
+    position: absolute;
+    text-align: center;
+    color: $orange-color;
+    top: 8px;
+    right: 8px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  &__header {
+    font-size: $heading-label;
+    font-weight: bold;
+    width: 100%;
+    background-color: $light-orange-color;
+    color: $orange-color;
+    height: $topbar-height;
+    line-height: 60px;
+    text-align: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+
+  &__content {
+    position: absolute;
+    top: $topbar-height;
+    height: calc(100% - #{$topbar-height});
+    width: 100%;
+    overflow: scroll;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #00000033;
+  z-index: 9999;
+}
+

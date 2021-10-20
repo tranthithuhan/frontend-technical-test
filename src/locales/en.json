@@ -1,7 +1,14 @@
 {
   "common": {
     "discussions": "Discussions",
-    "send": "Send"
+    "send": "Send",
+    "modal": {
+      "conversation": {
+        "users": {
+          "select-user": "Select a user to begin a conversation"
+        }
+      }
+    }
   },
   "error": {
     "404": {

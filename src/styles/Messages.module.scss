@@ -1,17 +1,19 @@
+$header-height: 60px;
+
 .messages {
   flex: 1;
   height: calc(100vh - 60px);
   overflow: scroll;
 
   &__header {
-    height: 60px;
+    height: $header-height;
     display: flex;
     align-items: center;
     position: fixed;
-    top: 60px;
+    top: $header-height;
     width: 100%;
-    background-color: white;
-    z-index: 2;
+    background-color: $white-color;
+    border-bottom: 1px solid $gainsboro-color;
 
     &__userIcon {
       margin: 8px 0;
@@ -22,6 +24,7 @@
   &__wrapper {
     overflow: scroll;
     margin-bottom: 76px;
+    margin-top: $header-height;
   }
 }
 
@@ -40,7 +43,7 @@
     max-width: 564px;
     padding: 12px;
     border-radius: 8px;
-    background-color: #f4f6f7;
+    background-color: $gainsboro-color;
     display: flex;
     align-items: center;
   }
@@ -49,7 +52,21 @@
     flex-direction: row-reverse;
 
     &__body {
-      background-color: #d9e6f7;
+      background-color: $light-blue-color;
+    }
+  }
+
+  @media (max-width: $breakpoint-desktop) {
+    margin: 8px;
+    width: calc(100% - 66px);
+    margin-right: 50px;
+
+    &__icon {
+      display: none;
+    }
+
+    &__sendByMe {
+      margin-left: 50px;
     }
   }
 }
@@ -60,23 +77,24 @@
   bottom: 0;
   width: calc(100% - #{$left-conversation-desktop-width});
   height: 76px;
-  border-top: 1px solid #e6ebef;
+  border-top: 1px solid $gainsboro-color;
   padding: 8px;
   padding-bottom: 25px;
   display: flex;
   align-items: center;
 
   &__input {
-    background: #fff;
-    border: 1px solid #cad1d9;
+    background: $white-color;
+    border: 1px solid $gainsboro-color;
     border-radius: 4px;
     flex: 1;
     height: 100%;
+    outline: none;
   }
 
   &__button {
-    background-color: #4183d7;
-    color: white;
+    background-color: $blue-color;
+    color: $white-color;
     text-decoration: none;
     border-radius: 4px;
     height: 32px;

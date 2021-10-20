@@ -40,11 +40,16 @@ export const deleteConversationsById = (conversationId: Conversation['id']):Prom
 		method: 'DELETE'
 	}).exec().then(res => res.data)
 
-export const createConversationsByUserId = (userId: User['id'], conversation: Conversation):Promise<Conversation> =>
+export const createConversationsByUserId = (user: User):Promise<Conversation> =>
 	new BackendRequest({
-		url: `conversations/${userId}`,
+		url: `conversations/${getLoggedUserId()}`,
 		method: 'POST',
-		data: conversation
+		data: {
+			senderId: getLoggedUserId(),
+			recipientId: user.id,
+			recipientNickname: user.nickname,
+			lastMessageTimestamp: Date.now(),
+		}
 	}).exec().then(res => res.data)
 
 export const getConversationInListByConversationId = (conversations: Conversation[], conversationId: Conversation['id']):Conversation => {

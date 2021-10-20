@@ -1,0 +1,21 @@
+.users {
+
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  margin: 8px;
+  padding: 8px 0;
+  border-radius: 8px;
+
+  &:hover {
+    background: $gainsboro-color;
+  }
+
+  &__nickname {
+    font-size: $heading-label;
+    margin-left: 8px;
+    color: $black-olive-color;
+  }
+}

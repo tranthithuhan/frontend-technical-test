@@ -3,12 +3,30 @@
   width: $left-conversation-desktop-width;
 
   &__header {
-    font-size: 24px;
+    font-size: $heading-medium;
     font-weight: bold;
     padding: 8px;
-    height: 60px;
+    height: $header-height;
+    color: $black-olive-color;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+
+    &__editIcon {
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      background-color: $white-color;
+      border: 1px solid $pale-silver-color;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      &:hover {
+        background: $pale-silver-color;
+      }
+    }
   }
 
   &__body {
@@ -31,7 +49,7 @@
   margin: 0 8px;
 
   &:hover {
-    background: #fafafa;
+    background: $light-grey-color;
   }
 
   &__userIcon {
@@ -47,17 +65,18 @@
 
     &__nickname {
       margin: 4px 0;
+      color: $black-olive-color;
     }
 
     &__date {
-      color: gray;
+      color: $spanish-gray-color;
       margin: 4px 0;
-      font-size: 12px;
+      font-size: $body-small;
     }
   }
 
   &__isSelected {
-    background: #e6ebef;
+    background: $light-orange-color;
   }
 
   @media (max-width: $breakpoint-desktop) {
