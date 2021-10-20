@@ -1,3 +1,45 @@
+# Process :
+This exercise is realize inspired by the `Leboncoin's message` interface and `Facebook messenger`.
+The interface provides these principals features:
+- Consult user's conversations
+- Create new conversation
+- Consult messages in a conversation
+- Send message
+- Error page for 404/500 error code
+
+<details>
+  <summary>Click to see the interface</summary>
+  Desktop conversations :
+
+  ![](./sketches/conversation-desktop.png)
+
+  Modal for selecting a user to begin a conversation :
+
+  ![](./sketches/selec-user-modal.png)
+  
+  Mobile conversations :
+
+  ![](./sketches/conversation-mobile.png)
+
+</details>
+
++ Because this is a small application, so I manage the app state with `react context`. 
++ [Axios library](https://github.com/axios/axios) is used for fetching data.
++ For UI, I use [Sass](https://sass-lang.com/guide). I don't choose UI library like `React bootstrap`, `material-ui`, ... 
+because I found that the interface UI isn't very complicate. The responsive is only managed by `media queries`
++ For unit test, I use `Jest`.
++ For supporting everybody in every country, `i18next` is used.
++ To be able to add new conversation, I have modified the `conversation.js` file (the json data was cached, so it doesn't send new conversation added) )
+
+#Future development and improvement (In progress)
++ Use swr for fetch data (refresh data, real time, ssr)
++ Add more test
++ Enhance interface UI/responsive 
++ Enhance performance
++ ...
+
+---
+
 # Context :
 
 At leboncoin, our users can share messages about a transaction, or ask for informations about any products.
